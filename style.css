@@ -1,0 +1,165 @@
+/* Основные переменные для цветов темы */
+:root {
+    /* Общие цвета */
+    --primary-color: #004997; /* Основной синий для кнопок/ссылок */
+    --secondary-color: #6c757d; /* Второстепенный серый */
+
+    /* Светлая тема */
+    --body-bg-light: #f4f7f6; /* Очень светло-серый фон страницы */
+    --text-color-light: #343a40; /* Темный текст */
+    --header-bg-light: #ffffff; /* Белый фон шапки */
+    --card-bg-light: #ffffff; /* Белый фон карточек */
+    --border-color-light: #e0e0e0; /* Светлая граница */
+    --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* Мягкая тень */
+    --hover-shadow-light: 0 8px 20px rgba(0, 0, 0, 0.15); /* Тень при наведении */
+}
+
+/* Темная тема */
+body.dark-mode {
+    --body-bg-light: #212529; /* Темный фон страницы */
+    --text-color-light: #f8f9fa; /* Светлый текст */
+    --header-bg-light: #2c3135; /* Темно-серый фон шапки */
+    --card-bg-light: #3c4248; /* Темно-серый фон карточек */
+    --border-color-light: #495057; /* Темная граница */
+    --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более заметная тень */
+    --hover-shadow-light: 0 8px 20px rgba(0, 0, 0, 0.45); /* Тень при наведении */
+}
+
+/* Применение переменных к элементам */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Красивый шрифт */
+    background-color: var(--body-bg-light);
+    color: var(--text-color-light);
+    transition: background-color 0.4s ease, color 0.4s ease; /* Плавный переход для всех */
+}
+
+/* Header */
+header {
+    background-color: var(--header-bg-light);
+    border-bottom: 1px solid var(--border-color-light) !important;
+    box-shadow: var(--box-shadow-light); /* Тень для шапки */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color-light); /* Гарантируем, что заголовки меняют цвет */
+}
+
+/* Cards (Карточки статей) */
+.card {
+    background-color: var(--card-bg-light);
+    color: var(--text-color-light);
+    border: none; /* Убираем стандартную границу Bootstrap */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: var(--box-shadow-light); /* Мягкая тень */
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+    cursor: pointer; /* Показываем, что на карточку можно кликнуть */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Легкий подъем при наведении */
+    box-shadow: var(--hover-shadow-light); /* Более выраженная тень при наведении */
+}
+
+.card-title {
+    font-weight: 600; /* Жирный заголовок */
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 0.85em;
+    color: var(--secondary-color) !important; /* Принудительно задаем цвет для подзаголовка */
+}
+
+.card-text.small.text-muted {
+    font-size: 0.75em;
+    color: var(--secondary-color) !important;
+    opacity: 0.8;
+}
+
+/* Buttons (Кнопки) */
+.btn-outline-secondary {
+    color: var(--text-color-light) !important; /* Цвет текста кнопки */
+    border-color: var(--border-color-light) !important; /* Цвет рамки кнопки */
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--primary-color) !important;
+    color: #fff !important; /* Белый текст при наведении */
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%) !important; /* Затемнение цвета при наведении */
+    border-color: darken(var(--primary-color), 10%) !important;
+}
+
+/* Footer (Подвал) */
+footer {
+    background-color: var(--header-bg-light); /* Тот же фон, что и у шапки */
+    border-top: 1px solid var(--border-color-light) !important;
+    color: var(--text-color-light);
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Search input */
+#search-input.form-control {
+    background-color: var(--card-bg-light);
+    color: var(--text-color-light);
+    border-color: var(--border-color-light);
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+#search-input.form-control::placeholder {
+    color: var(--secondary-color);
+    opacity: 0.6;
+}
+
+/* Theme toggle button text visibility */
+#theme-toggle .light-text,
+#theme-toggle .dark-text {
+    display: inline;
+}
+
+body.dark-mode #theme-toggle .light-text {
+    display: none;
+}
+
+body.dark-mode #theme-toggle .dark-text {
+    display: inline;
+}
+
+/* Responsive adjustments (для адаптивности, как просили) */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    header .d-flex {
+        flex-direction: column; /* Элементы в шапке становятся в колонку */
+        align-items: flex-start !important;
+    }
+    #search-input {
+        width: 100%; /* Поиск на всю ширину */
+        margin-bottom: 10px; /* Отступ */
+        margin-right: 0 !important;
+    }
+    #theme-toggle {
+        width: 100%; /* Кнопка темы на всю ширину */
+    }
+    .col-md-8, .col-md-4 {
+        width: 100%; /* Колонки занимают всю ширину на маленьких экранах */
+    }
+    .col-md-4 { /* Сайдбар */
+        order: -1; /* Переносим сайдбар наверх на мобильных */
+        margin-bottom: 1.5rem;
+    }
+}

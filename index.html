@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/x-icon" href="/News.png" rel="shortcut icon">
+    <link type="Image/x-icon" href="/News.png" rel="icon">
+    <title>News Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="py-3 mb-4 border-bottom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h3 mb-0">News Dashboard</h1>
+            <div class="d-flex align-items-center">
+                <input type="text" id="search-input" class="form-control me-2" placeholder="Search articles..." aria-label="Search">
+                <button id="theme-toggle" class="btn btn-outline-secondary">
+                    <span class="light-text">Dark Mode</span>
+                    <span class="dark-text d-none">Light Mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Latest Articles</h2>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sort By
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                            <li><a class="dropdown-item" href="#" data-sort="date">Date</a></li>
+                            <li><a class="dropdown-item" href="#" data-sort="views">Popularity</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="articles-container" class="row">
+                    </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Most Popular Article</h4>
+                        <div id="most-popular-article-container">
+                            <p class="text-muted">Click on an article to see which one is the most popular</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-3 mt-4 border-top text-center text-muted">
+        <div class="container">
+            <p>&copy; 2025 News Dashboard.</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="articleModal" tabindex="-1" aria-labelledby="articleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="articleModalLabel">Article Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted" id="modal-category-date"></p>
+                    <p id="modal-content"></p>
+                    <p class="small text-muted">Views: <span id="modal-views"></span> | Word Count: <span id="modal-word-count"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eP5J5W-PzGdoR6oDGEpYJ" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
